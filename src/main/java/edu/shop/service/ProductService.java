@@ -1,6 +1,7 @@
 package edu.shop.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -34,6 +35,8 @@ public interface ProductService {
 	List<Product> findAll();
 
 	<S extends Product> S save(S entity);
+
+	List<Product> findByCategoryId(Optional<String> cid);
 
 
 }

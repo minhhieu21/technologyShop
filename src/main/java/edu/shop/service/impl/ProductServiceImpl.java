@@ -1,6 +1,7 @@
 package edu.shop.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -73,6 +74,11 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public <S extends Product> List<S> findAll(Example<S> example, Sort sort) {
 		return productRepository.findAll(example, sort);
+	}
+
+	@Override
+	public List<Product> findByCategoryId(Optional<String> cid) {
+		return productRepository.findByCategoryId(cid);
 	}
 
 	
