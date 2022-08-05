@@ -2,8 +2,26 @@
 <html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index :: dynamic(~{::main})}">
 
 <body>
-    <main>
-        <h1>PRODUCT LIST</h1>
+    <main class="row g-3">
+        <div class="container mt-2 mb-5">
+            <div class="products">
+                <div class="row">
+                    <div class="col-md-4 mt-3" th:each="p : ${items}">
+                        <div class="card">
+                            <a th:href="@{|/product/detail/${p.id}|}"><img th:src="@{|/assets/images/${p.image}|}" class="card-img-top img-fluid" style="height: 220px;"></a>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between"> <span th:text="${p.name}" class="font-weight-bold"></span> <strong>$<span th:text="${p.price}" class="font-weight-bold"></span></strong> </div>
+                                <p class="card-text mb-1 mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, blanditiis ut! Unde doloremque eum architecto alias voluptatibus hic doloribus</p>
+                            </div>
+                            <hr>
+                            <div class="card-body">
+                                <div class="text-right buttons"> <button class="btn btn-outline-dark">add to wishlist</button> <button class="btn btn-dark">Add to cart</button> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 </body>
 

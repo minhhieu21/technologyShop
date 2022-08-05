@@ -2,8 +2,72 @@
 <html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index :: dynamic(~{::main})}">
 
 <body>
-    <main>
-        <h1>PRODUCT DETAIL</h1>
+    <main th:object="${item}">
+        <div class="container">
+            <div class="col-lg-8 mt-4 mb-3 border p-3 main-section bg-white offset-2">
+                <div class="row hedding m-0 pl-3 pt-0 pb-3">
+                    CHI TIẾT SẢN PHẨM
+                </div>
+                <div class="row m-0">
+                    <div class="col-lg-4 left-side-product-box pb-3">
+                        <img th:src="@{|/assets/images/*{image}|}" class="card-img-top img-fluid">
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="right-side-pro-detail border p-3 m-0">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h3>Sản phẩm</h3>
+                                    <strong><p th:text="${item.name}" class="m-0 p-0"></p></strong>
+                                </div>
+                                <div class="col-lg-12">
+                                    <strong th:text="${item.price + ' $' }" class="m-0 p-0 price-pro"></strong>
+                                    <hr class="p-0 m-0">
+                                </div>
+                                <div class="col-lg-12 pt-2">
+                                    <h5>Product Detail</h5>
+                                    <span></span>
+                                    <hr class="m-0 pt-2 mt-2">
+                                </div>
+                                <div class="col-lg-12">
+                                    <strong>Ngày nhập :</strong> <span th:text="*{createDate}"></span>
+                                </div>
+                                <div class="col-lg-12">
+                                    <strong>Loại sản phẩn : </strong><span th:text="*{category.name}"></span>
+                                </div>
+                                <div class="col-lg-12">
+                                    <h6>Quantity :</h6>
+                                    <input type="number" class="form-control text-center w-100" value="1">
+                                </div>
+                                <div class="col-lg-12 mt-3">
+                                    <div class="row">
+                                        <div class="col-lg-6 pb-2">
+                                            <a href="" class="btn btn-danger w-100">Add To Cart</a>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <a href="" class="btn btn-success w-100">Shop Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row hedding m-0 pl-3 pt-3 pb-3">
+                    SẢN PHẨM LIÊN QUAN
+
+                </div>
+
+                <div class="row">
+                    <ul>
+                        <li th:each="p:${item.category.products}">
+                            <a th:href="@{|/product/detail/${p.id}|}">[[${p.name}]]</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
     </main>
 </body>
 
