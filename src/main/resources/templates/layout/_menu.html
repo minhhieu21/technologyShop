@@ -21,12 +21,17 @@
             <ul class="navbar-nav ml-auto">
 
                 <li class="nav-item float-right">
-                    <a class="nav-link text-light" th:href="@{/cart}"><span class="fa fa-shopping-cart"></span>
+                    <a class="nav-link text-light" th:href="@{/cart/view}"><span class="fa fa-shopping-cart"></span>
 						<span th:text="${cartCount}" class="text">0</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="#"><span class="fa fa-user-o"></span>
-						<span class="text">Profile</span></a>
+                    <a class="nav-link text-light" th:href="@{/security/login/form}">
+                        <span class="text">Log in</span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-light" th:href="@{/security/logoff}">
+                        <span class="text">Log out</span></a>
                 </li>
             </ul>
         </div>
