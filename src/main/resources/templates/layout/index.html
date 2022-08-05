@@ -7,31 +7,57 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- Link icon -->
+    <link rel="shortcut icon" href="/assets/images/icon1.png" type="image/x-icon">
+
     <!-- LINK ANGULAR -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <!-- Link awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- LINK CSS -->
+    <link rel="stylesheet" th:href="@{/assets/css/style.css}">
+
+    <!-- LINK CSS -->
+    <link rel="stylesheet" th:href="@{/assets/fonts/icomoon/style.css}">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
-<body class="container">
-    <header class="row"></header>
-    <nav class="row">
-        <div th:replace="/layout/_menu.html"></div>
-    </nav>
-    <div class="row">
-        <article class="col-sm-9">
-            <div th:replace="${main}"></div>
-        </article>
+<body>
+    <div class="container-fluid">
+        <header class="row"></header>
+        <div class="row">
+            <div th:replace="/layout/_menu.html"></div>
+        </div>
+        <div class="row">
+            <article class="col-sm-9">
+                <div th:replace="${main}"></div>
+            </article>
 
-        <aside class="col-sm-3">
-            <div th:replace="/layout/_cart-info.html"></div>
-            <div th:replace="/layout/_category.html"></div>
-        </aside>
+            <aside class="col-sm-3">
+                <div th:replace="/layout/_cart-info.html"></div>
+                <div th:replace="/layout/_category.html"></div>
+            </aside>
+        </div>
+        <footer class="row">
+            <div th:replace="/layout/_footer.html"></div>
+        </footer>
     </div>
-    <footer class="row">
-        <div th:replace="/layout/_footer.html"></div>
-    </footer>
+
+    <script type="text/javascript">
+        var nav = document.querySelector('nav');
+
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 100) {
+                nav.classList.add('bg-dark', 'shadow');
+            } else {
+                nav.classList.remove('bg-dark', 'shadow');
+            }
+        });
+    </script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
