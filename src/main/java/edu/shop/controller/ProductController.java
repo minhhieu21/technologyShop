@@ -13,4 +13,9 @@ public class ProductController {
 	public String list(){
 		return "product/list";
 	}
+	
+	@GetMapping("/detail/{id}")
+	public String detail(){
+		return "product/detail";
+	}
 }
