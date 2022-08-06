@@ -1,11 +1,10 @@
-<nav class="navbar bg-dark navbar-expand navbar-dark p-md-3 container-fluid">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark p-md-3 container-fluid">
     <div class="container">
         <a class="navbar-brand" th:href="@{/product/list}">INFINITY SNEAKER SHOP</a>
-        <!-- Thu nhá»� sáº½ hiá»ƒn thá»‹ ra nÃºt nháº¥n -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
             <div class="mx-auto">
                 <ul class="navbar-nav">
                     <form class="form-inline">
@@ -22,7 +21,7 @@
 
                 <li class="nav-item float-right">
                     <a class="nav-link text-light" th:href="@{/cart/view}"><span class="fa fa-shopping-cart"></span>
-						<span class="text">{{cart.count}}</span></a>
+                    <span class="text">{{cart.count}}</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-light" th:href="@{/security/login/form}">
@@ -37,6 +36,7 @@
         </div>
     </div>
 </nav>
+
 
 <!-- Banner Image
 <div class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">

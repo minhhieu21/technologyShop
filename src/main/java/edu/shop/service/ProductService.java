@@ -22,8 +22,6 @@ public interface ProductService {
 
 	void deleteAll();
 
-	void delete(Product entity);
-
 	void deleteById(Integer id);
 
 	long count();
@@ -37,6 +35,10 @@ public interface ProductService {
 	<S extends Product> S save(S entity);
 
 	List<Product> findByCategoryId(Optional<String> cid);
+
+	Optional<Product> findById(Integer id);
+
+	void delete(Product entity);
 
 
 }

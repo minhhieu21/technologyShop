@@ -1,5 +1,5 @@
 .image-container {
-    background: url('/images/bg2.jpg') center no-repeat;
+    background: url('/assets/images/bg2.jpg') center no-repeat;
     background-size: cover;
     height: 100vh;
 }

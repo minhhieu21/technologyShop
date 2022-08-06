@@ -67,6 +67,11 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
+	public Optional<Product> findById(Integer id) {
+		return productRepository.findById(id);
+	}
+
+	@Override
 	public <S extends Product> List<S> findAll(Example<S> example) {
 		return productRepository.findAll(example);
 	}
