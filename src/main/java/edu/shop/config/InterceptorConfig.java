@@ -1,4 +1,4 @@
-package edu.shop;
+package edu.shop.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
