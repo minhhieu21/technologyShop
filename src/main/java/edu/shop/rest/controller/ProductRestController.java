@@ -12,13 +12,13 @@ import edu.shop.service.ProductService;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("rest")
+@RequestMapping("/rest/products")
 public class ProductRestController {
 	
 	@Autowired
 	ProductService productService;
 	
-	@GetMapping("product/{id}")
+	@GetMapping("{id}")
 	public Product getOne(@PathVariable("id") Integer id) {
 		return productService.getById(id);
 	}

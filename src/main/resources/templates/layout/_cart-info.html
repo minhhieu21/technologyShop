@@ -2,6 +2,6 @@
     <div class="card-body">
         <h5 class="card-title">GIỎ HÀNG</h5>
         <span class="fa fa-shopping-cart"></span>
-        <a th:href="@{/cart/view}" class="card-text">15 items x $40.4</a>
+        <a th:href="@{/cart/view}" class="card-text">{{cart.count}} items x ${{cart.amount | number : 2}}</a>
     </div>
 </div>

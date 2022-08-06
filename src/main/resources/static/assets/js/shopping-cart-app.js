@@ -9,9 +9,7 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 
         //thêm sản phẩm vào giỏ hàng
         add(id) {
-
-            alert(id)
-                //tìm xem có mặt hàng nào có ID này chưa
+            //tìm xem có mặt hàng nào có ID này chưa
             var item = this.items.find(item => item.id == id);
 
             //Có
@@ -40,12 +38,24 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 
         //Xóa sản phẩm khỏi giỏ hàng
         remove(id) {
+            //tìm mã sản phẩm có trong giỏ hàng thông qua id
+            var index = this.items.findIndex(item => item.id == id);
 
+            //xóa phần tử khỏi mảng
+            this.items.splice(index, 1);
+
+            //lưu lại vào local
+            this.saveToLocalStorage();
         },
 
         //Xóa sạch giỏ hàng
         clear() {
 
+            //cho mảng rỗng
+            this.items = [];
+
+            //lưu lại vào local
+            this.saveToLocalStorage();
         },
 
         //Tính thành tiền của 1 sản phẩm
@@ -55,12 +65,16 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
 
         //Tính tổng số lượng các mặt hàng trong giỏ
         get count() {
-
+            return this.items
+                .map(item => item.qty)
+                .reduce((total, qty) => total += qty, 0);
         },
 
         //Tổng thành tiền các mặt hàng có trong giỏ
         get amount() {
-
+            return this.items
+                .map(item => item.qty * item.price)
+                .reduce((total, qty) => total += qty, 0);
         },
 
         //Lưu giỏ hàng vào local storage
@@ -73,6 +87,13 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
             localStorage.setItem("cart", json);
         },
 
+        loadFromLocalStorage() {
+            //đọc cart từ localstorage
+            var json = localStorage.getItem("cart")
 
+            //nếu có chuyển sang json và dán vào items
+            this.items = json ? JSON.parse(json) : [];
+        }
     }
+    $scope.cart.loadFromLocalStorage();
 })
