@@ -27,7 +27,7 @@ public class SecuriryController {
 	@GetMapping("login/success")
 	public String loginSuccess(Model model){
 		model.addAttribute("message", "Đăng nhập thành công");
-		return "product/login";
+		return "redirect:/product/list";
 	}
 	
 	@GetMapping("login/error")

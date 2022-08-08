@@ -6,27 +6,53 @@
     </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <div class="mx-auto">
+                <form class="form-inline">
+                    <!-- Actual search box -->
+                    <div class="form-group has-search">
+                        <span class="fa fa-search form-control-feedback"></span>
+                        <input type="text" class="form-control" placeholder="Search Products">
+                    </div>
+                </form>
+            </div>
+
+            <div class="mx-auto">
                 <ul class="navbar-nav">
-                    <form class="form-inline">
-                        <!-- Actual search box -->
-                        <div class="form-group has-search">
-                            <span class="fa fa-search form-control-feedback"></span>
-                            <input type="text" class="form-control" placeholder="Search Products">
-                        </div>
-                    </form>
+                    <th:block th:if="${#request.remoteUser}">
+                        <li>
+                            <a class="nav-link text-light" th:href="@{/order/list}">
+                                <span class="text">Your order</span></a>
+                        </li>
+                        <li th:if="${#request.isUserInRole('DIRE') or #request.isUserInRole('STAF')}">
+                            <a class="nav-link text-light" th:href="@{/admin/home/index}">
+                                <span class="text">Administration</span></a>
+                        </li>
+                    </th:block>
+
                 </ul>
             </div>
 
+
             <ul class="navbar-nav ml-auto">
+
+                <th:block th:unless="${#request.remoteUser}">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" th:href="@{/security/login/form}">
+                            <span class="text">Log in</span></a>
+                    </li>
+                </th:block>
+
+                <li th:if="${#request.remoteUser}" class="nav-item">
+                    <a class="nav-link text-light" href="">
+                        <span class="text">Hi</span> [[${#request.remoteUser}]] !</a>
+                </li>
+
+
 
                 <li class="nav-item float-right">
                     <a class="nav-link text-light" th:href="@{/cart/view}"><span class="fa fa-shopping-cart"></span>
                     <span class="text">{{cart.count}}</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light" th:href="@{/security/login/form}">
-                        <span class="text">Log in</span></a>
-                </li>
+
 
                 <li class="nav-item">
                     <a class="nav-link text-light" th:href="@{/security/logoff}">
