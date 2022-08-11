@@ -11,7 +11,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import edu.shop.repository.ProductRepository;
-import edu.shop.dao.ProductDAO;
 import edu.shop.entity.Product;
 import edu.shop.service.ProductService;
 

@@ -2,8 +2,77 @@
 <html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index :: dynamic(~{::main})}">
 
 <body>
-    <main>
-        <h1>ORDER DETAIL</h1>
+    <main th:object="${order}">
+        <div class="container">
+            <section class="pt-3 pb-3">
+                <div class="head pb-3">
+                    <div class="container py-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h1 class="font-weight-light text-center py-1">ORDER DETAILS</h1>
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                                        <div class="pb-3">
+
+                                            <form>
+                                                <div class="form-row">
+                                                    <div class="form-group col-lg-12 col-md-12 col-sm-12 col-12">
+                                                        <label>OrderID</label>
+                                                        <input th:field="*{id}" readonly class="form-control mb-3 "></input>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row ">
+                                                    <div class="form-group col-lg-6 col-md-12 col-sm-12 col-12 ">
+                                                        <label>Purchase</label>
+                                                        <input th:field="*{account.username}" readonly class="form-control "></input>
+                                                    </div>
+                                                    <div class="form-group col-lg-6 col-md-12 col-sm-12 col-12 ">
+                                                        <label>Order Date :</label>
+                                                        <input th:field="*{createDate}" readonly class="form-control "></input>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-row ">
+                                                    <div class="form-group col-lg-12 col-md-12 col-sm-12 col-12 ">
+                                                        <label>Address</label>
+                                                        <textarea th:field="*{address}" readonly class="form-control mb-3 " placeholder="Address " cols="10 " rows="4 "></textarea>
+                                                    </div>
+                                                </div>
+
+                                            </form>
+
+                                            <table class="table table-hover ">
+                                                <thead class="thead-dark ">
+                                                    <tr>
+                                                        <th scope="col ">ID</th>
+                                                        <th scope="col ">Name</th>
+                                                        <th scope="col ">Price</th>
+                                                        <th scope="col ">Quatity</th>
+                                                        <th scope="col ">Amount</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr th:each="detail : *{orderDetails}" th:object="${detail}">
+                                                        <td>[[*{product.id}]]</td>
+                                                        <td>[[*{product.name}]]</td>
+                                                        <td>$[[*{#numbers.formatDecimal(price, 0, 'COMMA' ,2, 'POINT')}]]</td>
+                                                        <td>[[*{quantity}]] </td>
+                                                        <td>$[[*{#numbers.formatDecimal(price*quantity, 0, 'COMMA' ,2, 'POINT')}]]</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
     </main>
 </body>
 

@@ -3,7 +3,42 @@
 
 <body>
     <main>
-        <h1>ORDER LIST</h1>
+        <div class="row">
+
+            <!--Grid column-->
+            <div class="col">
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        YOUR ORDER PURCHASED
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Order No</th>
+                                    <th scope="col">Order Date</th>
+                                    <th scope="col">Shipping Address</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="ords,state : ${orders}">
+                                    <th>[[${state.index}]]</th>
+                                    <td>[[${ords.id}]]</td>
+                                    <td>[[${ords.createDate}]]</td>
+                                    <td>[[${ords.address}]]</td>
+                                    <td>
+                                        <a th:href="@{|/order/detail/${ords.id}|}" class="btn btn-sm btn-outline-danger badge-pill"><i class="fa fa-search-dollar "></i></ang-click=>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </main>
 </body>
 

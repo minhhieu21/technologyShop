@@ -96,4 +96,40 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
         }
     }
     $scope.cart.loadFromLocalStorage();
+
+    $scope.order = {
+        createDate: new Date(),
+        address: "",
+
+        //Lấy username
+        account: { username: $("#username").text() },
+
+        //Lấy toàn bộ thông tin đơn hàng
+        get orderDetails() {
+            return $scope.cart.items.map(item => {
+                return {
+                    product: { id: item.id },
+                    price: item.price,
+                    quantity: item.qty
+                }
+            });
+        },
+        purchase() {
+            var order = angular.copy(this);
+
+            //Thực hiện đặt hàng
+            $http.post("/rest/orders", order).then(resp => {
+                alert("Đặt hàng thành công");
+
+                //xóa sạch giỏ hàng
+                $scope.cart.clear();
+
+                //Chuyển trang chi tiết đơn hàng
+                location.href = "/order/detail/" + resp.data.id
+            }).catch(error => {
+                alert("Đặt hàng lỗi !")
+                console.log(error)
+            })
+        }
+    }
 })
