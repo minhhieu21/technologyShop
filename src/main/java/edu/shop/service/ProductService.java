@@ -40,5 +40,7 @@ public interface ProductService {
 
 	void delete(Product entity);
 
+	Product update(Product product);
+
 
 }

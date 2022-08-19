@@ -1,0 +1,54 @@
+<style>
+    h6 {
+        color: gray;
+    }
+    
+    .icon a {
+        color: white;
+    }
+    
+    .icon a :hover {
+        color: #FFA1C9;
+    }
+    
+    .list-unstyled a,
+    p {
+        color: #FAEEE7;
+        text-decoration: none;
+    }
+    
+    .list-unstyled a:hover {
+        color: #FF6464;
+        text-decoration: none;
+    }
+    
+    .top-bar {
+        background: #FF8243;
+    }
+    
+    .top-bar a {
+        color: white;
+        font-size: 1.1rem;
+        text-decoration: none;
+    }
+</style>
+
+
+<div class="col mt-3">
+    <ul class="nav nav-tabs pt-2">
+        <li class="nav-item">
+            <a class="nav-link active" href="" data-toggle="tab" data-target="#edit">EDIT</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="" data-toggle="tab" data-target="#list">LIST</a>
+        </li>
+    </ul>
+    <div class="tab-content pb-5">
+        <div class="tab-pane fade show active" id="edit">
+            <div ng-include="'/assets/admin/product/_form.html'"></div>
+        </div>
+        <div class="tab-pane fade" id="list">
+            <div ng-include="'/assets/admin/product/_table.html'"></div>
+        </div>
+    </div>
+</div>

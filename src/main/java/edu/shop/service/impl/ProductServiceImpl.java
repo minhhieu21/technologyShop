@@ -85,5 +85,10 @@ public class ProductServiceImpl implements ProductService {
 		return productRepository.findByCategoryId(cid);
 	}
 
+	@Override
+	public Product update(Product product) {
+		return productRepository.save(product);
+	}
+
 	
 }

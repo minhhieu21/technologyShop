@@ -102,6 +102,11 @@ public class AccountServiceImpl implements AccountService {
 	public <S extends Account> List<S> findAll(Example<S> example, Sort sort) {
 		return accountRepository.findAll(example, sort);
 	}
+
+	@Override
+	public List<Account> getAdministrators() {
+		return accountRepository.getAdministrators();
+	}
 	
 	
 

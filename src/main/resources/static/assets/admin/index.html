@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en" xmlns="http://thymeleaf.org" th:fragment="dynamic(main)">
+
+<head>
+    <title>technologyShop</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Link icon -->
+    <link rel="shortcut icon" href="/assets/images/icon1.png" type="image/x-icon">
+
+    <!-- Link jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <!-- LINK ANGULAR -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+    <!-- Link awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+
+    <!-- LINK CSS -->
+    <link rel="stylesheet" th:href="@{/assets/css/style.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/listProduct.css}">
+    <link rel="stylesheet" th:href="@{/assets/css/checkout.css}">
+
+    <!-- Link SweetAlert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- LINK CSS -->
+    <link rel="stylesheet" th:href="@{/assets/fonts/icomoon/style.css}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body ng-app="admin-app">
+    <header class="col">
+        <nav class="navbar bg-dark navbar-expand-lg navbar-dark p-md-3">
+            <a class="navbar-brand" href="#">WEBSITE ADMINISTRATION</a>
+            <!-- Thu nhỏ sẽ hiển thị ra nút nhấn -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="mx-auto">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#!product">PRODUCT</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#!category">CATEGORY</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#!authorize">AUTHORIZING</a>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/security/logoff">Log Out</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container-fluid ng-view"></div>
+    </main>
+
+
+    <style>
+        .banner-image {
+            background-image: url('/assets/images/BG.png');
+            background-size: cover;
+            margin: 0;
+        }
+        
+        .fa-search {
+            font-size: 20px;
+            padding: 10px;
+            margin-bottom: 3px;
+            padding-right: 20px;
+        }
+        /* Bootstrap 4 text input with search icon */
+        
+        .has-search .form-control {
+            padding-left: 2.375rem;
+        }
+        
+        .has-search .form-control-feedback {
+            position: absolute;
+            display: block;
+            text-align: center;
+            pointer-events: none;
+            color: #aaa;
+        }
+    </style>
+
+    <!-- Link JS -->
+    <script src="/assets/admin/admin-app.js"></script>
+    <script src="/assets/admin/product/product-ctrl.js"></script>
+    <script src="/assets/admin/category/category-ctrl.js"></script>
+    <script src="/assets/admin/authority/authority-ctrl.js"></script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>

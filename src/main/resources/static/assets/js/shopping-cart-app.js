@@ -12,14 +12,32 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
             //tìm xem có mặt hàng nào có ID này chưa
             var item = this.items.find(item => item.id == id);
 
+
+
+
             //Có
             if (item) {
                 //Tăng số lượng lên và lưu vào local
                 item.qty++;
                 this.saveToLocalStorage();
+                Swal.fire({
+                    title: 'Sản phẩm đã có trong giỏ hàng',
+                    text: 'Chúng tôi sẽ tăng số lượng sản phẩm của bạn lên',
+                    icon: 'info',
+                    timer: 2000
+                })
             }
             //chưa có
             else {
+
+                Swal.fire({
+                        titile: 'Thành công',
+                        text: 'Đã thêm sản phẩm vào giỏ hàng !',
+                        icon: 'success',
+                        timer: 1100
+                    }
+
+                )
 
                 //tải sản phẩm trên server thông qua API
                 $http.get(`/rest/products/${id}`).then(resp => {
@@ -124,12 +142,23 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
                 //xóa sạch giỏ hàng
                 $scope.cart.clear();
 
+
+
+
                 //Chuyển trang chi tiết đơn hàng
                 location.href = "/order/detail/" + resp.data.id
             }).catch(error => {
-                alert("Đặt hàng lỗi !")
+                Swal.fire(
+                    'Thất bại',
+                    'Đặt hàng thất bại !',
+                    'error'
+                )
                 console.log(error)
             })
+        },
+
+        success() {
+            location.href = "/product/list/"
         }
     }
 })

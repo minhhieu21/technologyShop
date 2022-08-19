@@ -1,0 +1,38 @@
+<table class="table table-strip">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Price</td>
+            <td>Create Date</td>
+            <td>Category</td>
+            <td>Available</td>
+            <td>&nbsp;</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in pager.items">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.price | number : 2}}</td>
+            <td>{{item.createDate | date : 'dd-MM-yyyy'}}</td>
+            <td>{{item.category.name}}</td>
+            <td>{{item.available? 'Yes':'No'}}</td>
+            <td>
+                <button class="btn btn-sm btn-outline-primary" ng-click="edit(item)"><i class="fa fa-edit" aria-hidden="true"></i>
+							Edit</a></button>
+                <button class="btn btn-sm btn-outline-danger" ng-click="delete(item)"><i class="fa fa-edit" aria-hidden="true"></i>
+                                Delete</a></button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="card-footer text-muted text-center">
+    <div class="btn-group btn-group-xs">
+        <button ng-click="pager.first()" class="btn btn-danger text-white"><i class="fas fa-step-backward"></i></button>
+        <button ng-click="pager.prev()" class="btn btn-info"><i class="fas fa-angle-left"></i></button>
+        <button class="btn btn-success text-white">{{pager.page +1}} of {{pager.count}}</button>
+        <button ng-click="pager.next()" class="btn btn-info text-white"><i class="fas fa-angle-right"></i></button>
+        <button ng-click="pager.last()" class="btn btn-danger text-white"><i class="fas fa-step-forward"></i></button>
+    </div>
+</div>
