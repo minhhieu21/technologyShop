@@ -18,6 +18,6 @@ app.config(function($routeProvider) {
             controller: "authority-ctrl"
         })
         .otherwise({
-            template: "<h1 class='text-center> FPT Polytechnich Administration </h1>'"
+            template: "<h1 class='text-center'> FPT Polytechnich Administration </h1>"
         })
 })

@@ -21,6 +21,8 @@ public interface CategoryService {
 	void deleteAll();
 
 	void delete(Category entity);
+	
+	void deleteById(String id);
 
 	<S extends Category> boolean exists(Example<S> example);
 

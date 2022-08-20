@@ -85,6 +85,12 @@ public class CategoryServiceImpl implements CategoryService {
 	public <S extends Category> List<S> findAll(Example<S> example, Sort sort) {
 		return categoryRepository.findAll(example, sort);
 	}
+
+	@Override
+	public void deleteById(String id) {
+		categoryRepository.deleteById(id);
+		
+	}
 	
 	
 	

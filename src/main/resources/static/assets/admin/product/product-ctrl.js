@@ -79,15 +79,15 @@ app.controller("product-ctrl", function($scope, $http) {
                 )
                 //reset form
             $scope.reset();
-            location.reload();
+            $scope.initialize();
 
         }).catch(error => {
-            console.log("Error", error);
             Swal.fire(
                 'Opps...!',
                 'Thêm mới sản phẩm thất bại ',
                 'error'
             )
+            console.log("Error", error);
         })
     }
 
@@ -119,6 +119,7 @@ app.controller("product-ctrl", function($scope, $http) {
                         'success'
                     )
                     $scope.reset();
+                    $scope.initialize();
                 }).catch(error => {
                     console.log("Error", error);
                     Swal.fire(
@@ -160,6 +161,7 @@ app.controller("product-ctrl", function($scope, $http) {
                         'success'
                     )
                     $scope.reset();
+                    $scope.initialize();
                 }).catch(error => {
                     // console.log("Error", error);
                     Swal.fire(
