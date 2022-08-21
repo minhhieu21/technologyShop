@@ -2,16 +2,21 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>LOGIN TO SYSTEM</title>
+    <title>REGISTRATION</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <!-- Link icon -->
     <!-- Link icon -->
     <link rel="shortcut icon" href="/assets/images/icon1.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- link css -->
     <link rel="stylesheet" th:href="@{/assets/css/login.css}">
+    <script th:src="@{/assets/js/regis.js}"></script>
+
+    <!-- Link angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <!-- Link SweetAlert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -19,48 +24,42 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body>
-    <main class="container-fluid">
+<body ng-app="Myapp">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-lg-6 col-md-6 form-container">
                 <div class="col-lg-8 col-md-12 col-sm-9 col-xs-12 form-box text-center">
-                    <div class="logo">
+                    <div class="logo text-center">
                         <img src="/assets/images/logo.png" class="img-fluid w-50">
                     </div>
                     <div class="heading mb-3">
-                        <h4>LOGIN INTO YOUR ACCOUNT</h4>
+                        <h4>CREATE NEW AN ACCOUNT</h4>
                     </div>
-
-                    <div th:if="${message != null}" class="alert alert-primary" role="alert">
-                        <i>[[${message}]]</i>
-                    </div>
-
-                    <form th:action="@{/security/login}" method="post">
+                    <form>
                         <div class="form-input">
                             <span><i class="fa fa-user"></i></span>
-                            <input type="text" name="username" placeholder="Username" required>
-                            <!-- <small id="accountHelpId" class="form-text text-muted">Username is required</small> -->
+                            <input ng-model="form.username" type="text" name="name" id="name" placeholder="Username" required>
+                        </div>
+                        <div class="form-input">
+                            <span><i class="fa fa-envelope"></i></span>
+                            <input ng-model="form.email" type="email" name="email" id="email" placeholder="Email Address" required>
                         </div>
                         <div class="form-input">
                             <span><i class="fa fa-lock"></i></span>
-                            <input type="password" name="password" placeholder="Password" required>
-                            <!-- <small id="accountHelpId" class="form-text text-muted">Password is required</small> -->
+                            <input ng-model="form.password" type="password" name="password" id="password" placeholder="Password" required>
                         </div>
                         <div class="row mb-3">
-                            <div class="col-6 d-flex">
+                            <div class="col-12 d-flex">
                                 <div class="custom-control custom-checkbox">
-                                    <input name="remember-me" type="checkbox" class="custom-control-input" id="cb1" value="false">
-                                    <label class="custom-control-label text-white" for="cb1">Remember me</label>
+                                    <input type="checkbox" class="custom-control-input" id="cb1">
+                                    <label class="custom-control-label text-white" for="cb1">I agree all terms & conditions</label>
                                 </div>
                             </div>
-                            <div class="col-6 text-right">
-                                <a href="forgot.html" class="forget-link">Forgot password</a>
-                            </div>
                         </div>
-                        <div class="text-left text-center mb-3">
-                            <button type="submit" class="btn">Login</button>
+                        <div class="text-left mb-3 text-center">
+                            <button ng-click="create()" type="submit" class="btn">Register</button>
                         </div>
-                        <div class="text-white mb-3">or login with</div>
+                        <div class="text-white mb-3">or register with</div>
                         <div class="row mb-3">
                             <div class="col-4">
                                 <a href="" class="btn btn-block btn-social btn-facebook">
@@ -78,19 +77,16 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="text-white">Don't have an account?
-                            <a th:href="@{/security/form}" class="register-link">Register here</a>
+                        <div class="text-white">Already have an account?
+                            <a th:href="@{/security/login/form}" class="login-link">Login here</a>
                         </div>
                     </form>
-
                 </div>
             </div>
 
             <div class="col-lg-6 col-md-6 d-none d-md-block image-container"></div>
-
         </div>
-        </div>
-    </main>
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

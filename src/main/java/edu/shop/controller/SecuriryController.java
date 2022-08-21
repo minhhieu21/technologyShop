@@ -47,4 +47,10 @@ public class SecuriryController {
 		model.addAttribute("message", "Đăng xuất thành công");
 		return "security/login";
 	}
+	
+	@GetMapping("form")
+	public String registerForm(Model model){
+		model.addAttribute("message", "Vui lòng đăng nhập");
+		return "security/registration";
+	}
 }
