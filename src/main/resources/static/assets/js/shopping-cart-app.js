@@ -11,10 +11,6 @@ app.controller("shopping-cart-ctrl", function($scope, $http) {
         add(id) {
             //tìm xem có mặt hàng nào có ID này chưa
             var item = this.items.find(item => item.id == id);
-
-
-
-
             //Có
             if (item) {
                 //Tăng số lượng lên và lưu vào local
